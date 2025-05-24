@@ -124,16 +124,16 @@ namespace Faker
         );
 
         /// <summary>
-        /// Gets a random job description based on the provided language code.
+        /// Gets a random job descriptor based on the provided language code.
         /// This method is exposed as a server action to your ODC apps and libraries.
         /// </summary>
         [OSAction(
-            Description = "Gets a random job description based on a provided language code",
+            Description = "Gets a random job descriptor based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
             ReturnName = "JobDescription",
             ReturnType = OSDataType.Text
         )]
-        string GetJobDescription(
+        string GetJobDescriptor(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
