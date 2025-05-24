@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Logo.png" />
+    <EmbeddedResource Include="resources\Logo.png" />
   </ItemGroup>
 
   <ItemGroup>

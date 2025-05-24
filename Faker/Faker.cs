@@ -4,10 +4,17 @@ using System.Collections.Generic;
 
 namespace Faker
 {
+    /// <summary>
+    /// The Faker class implements the IFaker interface, providing
+    /// the actual functionality for generating realistic fake/demo data
+    /// using the Bogus library with multilingual support.
+    /// </summary>
     public class Faker : IFaker
     {
-        // Variables
-
+        /// <summary>
+        /// A HashSet containing all valid locale codes supported by the Bogus library.
+        /// Used for locale validation and fallback to default locale.
+        /// </summary>
         private static readonly HashSet<string> ValidLocales = new(StringComparer.OrdinalIgnoreCase)
         {
             "af_ZA", "ar", "az", "cz", "de", "de_AT", "de_CH", "el", "en", "en_AU", "en_AU_ocker", "en_BORK",
@@ -16,10 +23,17 @@ namespace Faker
             "pl", "pt_BR", "pt_PT", "ro", "ru", "sk", "sv", "tr", "uk", "vi", "zh_CN", "zh_TW", "zu_ZA"
         };
 
+        /// <summary>
+        /// The default locale to use when an invalid or unsupported locale is provided.
+        /// </summary>
         private const string DefaultLocale = "en";
 
-        // Helpers
-
+        /// <summary>
+        /// Maps the provided language code to a valid Bogus locale.
+        /// If the language is not supported, returns the default locale.
+        /// </summary>
+        /// <param name="language">The language code to map.</param>
+        /// <returns>A valid Bogus locale string.</returns>
         private static string GetMappedLocale(string language)
         {
             if (string.IsNullOrWhiteSpace(language))
@@ -29,124 +43,235 @@ namespace Faker
             return ValidLocales.Contains(normalized) ? normalized : DefaultLocale;
         }
 
+        /// <summary>
+        /// Creates a new Bogus.Faker instance with the specified language locale.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A configured Bogus.Faker instance.</returns>
         private static Bogus.Faker CreateFaker(string language)
         {
             var locale = GetMappedLocale(language);
             return new Bogus.Faker(locale);
         }
 
-        // Name related actions
+        // Name related methods
 
-        public void GetFullName(string language, out string fullname)
+        /// <summary>
+        /// Generates a random full name based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random full name.</returns>
+        public string GetFullName(string language)
         {
-            fullname = CreateFaker(language).Name.FullName();
+            return CreateFaker(language).Name.FullName();
         }
 
-        public void GetFirstName(string language, out string firstname)
+        /// <summary>
+        /// Generates a random first name based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random first name.</returns>
+        public string GetFirstName(string language)
         {
-            firstname = CreateFaker(language).Name.FirstName();
+            return CreateFaker(language).Name.FirstName();
         }
 
-        public void GetLastName(string language, out string lastname)
+        /// <summary>
+        /// Generates a random last name based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random last name.</returns>
+        public string GetLastName(string language)
         {
-            lastname = CreateFaker(language).Name.LastName();
+            return CreateFaker(language).Name.LastName();
         }
 
-        public void GetJobArea(string language, out string jobarea)
+        // Job related methods
+
+        /// <summary>
+        /// Generates a random job area based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random job area.</returns>
+        public string GetJobArea(string language)
         {
-            jobarea = CreateFaker(language).Name.JobArea();
+            return CreateFaker(language).Name.JobArea();
         }
 
-        public void GetJobType(string language, out string jobtype)
+        /// <summary>
+        /// Generates a random job type based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random job type.</returns>
+        public string GetJobType(string language)
         {
-            jobtype = CreateFaker(language).Name.JobType();
+            return CreateFaker(language).Name.JobType();
         }
 
-        public void GetJobTitle(string language, out string jobtitle)
+        /// <summary>
+        /// Generates a random job title based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random job title.</returns>
+        public string GetJobTitle(string language)
         {
-            jobtitle = CreateFaker(language).Name.JobTitle();
+            return CreateFaker(language).Name.JobTitle();
         }
 
-        public void GetJobDescription(string language, out string jobdescription)
+        /// <summary>
+        /// Generates a random job descriptor based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random job descriptor.</returns>
+        public string GetJobDescription(string language)
         {
-            jobdescription = CreateFaker(language).Name.JobDescriptor();
+            return CreateFaker(language).Name.JobDescriptor();
         }
 
-        // Phone realated actions
+        // Phone related methods
 
-        public void GetPhoneNumber(string language, out string phonenumber)
+        /// <summary>
+        /// Generates a random phone number based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random phone number.</returns>
+        public string GetPhoneNumber(string language)
         {
-            phonenumber = CreateFaker(language).Phone.PhoneNumber();
+            return CreateFaker(language).Phone.PhoneNumber();
         }
 
-        // Internet related actions
+        // Internet related methods
 
-        public void GetEmail(string language, out string email)
+        /// <summary>
+        /// Generates a random email address based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random email address.</returns>
+        public string GetEmail(string language)
         {
-            email = CreateFaker(language).Internet.Email();
+            return CreateFaker(language).Internet.Email();
         }
 
-        public void GetIPv4(string language, out string ipv4)
+        /// <summary>
+        /// Generates a random IPv4 address based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random IPv4 address.</returns>
+        public string GetIPv4(string language)
         {
-            ipv4 = CreateFaker(language).Internet.Ip();
+            return CreateFaker(language).Internet.Ip();
         }
 
-        public void GetIPv6(string language, out string ipv6)
+        /// <summary>
+        /// Generates a random IPv6 address based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random IPv6 address.</returns>
+        public string GetIPv6(string language)
         {
-            ipv6 = CreateFaker(language).Internet.Ipv6();
+            return CreateFaker(language).Internet.Ipv6();
         }
 
-        public void GetMac(string language, out string mac)
+        /// <summary>
+        /// Generates a random MAC address based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random MAC address.</returns>
+        public string GetMac(string language)
         {
-            mac = CreateFaker(language).Internet.Mac();
+            return CreateFaker(language).Internet.Mac();
         }
 
-        public void GetPassword(string language, out string password)
+        /// <summary>
+        /// Generates a random password based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random password.</returns>
+        public string GetPassword(string language)
         {
-            password = CreateFaker(language).Internet.Password();
+            return CreateFaker(language).Internet.Password();
         }
 
-        public void GetPort(string language, out int port)
+        /// <summary>
+        /// Generates a random port number based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random port number.</returns>
+        public int GetPort(string language)
         {
-            port = CreateFaker(language).Internet.Port();
+            return CreateFaker(language).Internet.Port();
         }
 
-        public void GetUserName(string language, out string username)
+        /// <summary>
+        /// Generates a random username based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random username.</returns>
+        public string GetUserName(string language)
         {
-            username = CreateFaker(language).Internet.UserName();
+            return CreateFaker(language).Internet.UserName();
         }
 
-        public void GetProtocol(string language, out string protocol)
+        /// <summary>
+        /// Generates a random protocol based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random protocol.</returns>
+        public string GetProtocol(string language)
         {
-            protocol = CreateFaker(language).Internet.Protocol();
+            return CreateFaker(language).Internet.Protocol();
         }
 
-        public void GetUrl(string language, out string url)
+        /// <summary>
+        /// Generates a random URL based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random URL.</returns>
+        public string GetUrl(string language)
         {
-            url = CreateFaker(language).Internet.Url();
+            return CreateFaker(language).Internet.Url();
         }
 
+        // Address related methods
 
-        // Address related actions
-
-        public void GetFullAddress(string language, out string address)
+        /// <summary>
+        /// Generates a random full address based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random full address.</returns>
+        public string GetFullAddress(string language)
         {
-            address = CreateFaker(language).Address.FullAddress();
+            return CreateFaker(language).Address.FullAddress();
         }
 
-        public void GetCity(string language, out string city)
+        /// <summary>
+        /// Generates a random city based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random city name.</returns>
+        public string GetCity(string language)
         {
-            city = CreateFaker(language).Address.City();
+            return CreateFaker(language).Address.City();
         }
 
-        public void GetCountry(string language, out string country)
+        /// <summary>
+        /// Generates a random country based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random country name.</returns>
+        public string GetCountry(string language)
         {
-            country = CreateFaker(language).Address.Country();
+            return CreateFaker(language).Address.Country();
         }
 
-        public void GetState(string language, out string state)
+        /// <summary>
+        /// Generates a random state based on the provided language code.
+        /// </summary>
+        /// <param name="language">The language code for localization.</param>
+        /// <returns>A random state or region name.</returns>
+        public string GetState(string language)
         {
-            state = CreateFaker(language).Address.State();
+            return CreateFaker(language).Address.State();
         }
     }
 }
