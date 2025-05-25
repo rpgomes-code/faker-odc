@@ -189,7 +189,7 @@ namespace Faker
             ReturnName = "IPv4Address",
             ReturnType = OSDataType.Text
         )]
-        string GetIPv4(
+        string GetIP(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
