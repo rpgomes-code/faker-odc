@@ -26,6 +26,20 @@ namespace Faker
         );
 
         [OSAction(
+            Description = "Gets a random DateTimeOffset in the past based on a provided language code",
+            IconResourceName = "Faker.resources.Logo.png",
+            ReturnName = "PastOffset",
+            ReturnType = OSDataType.DateTime
+        )]
+        DateTimeOffset GetDate_PastOffset(
+            [OSParameter(
+                DataType = OSDataType.Text,
+                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
+            )]
+            string language
+        );
+
+        [OSAction(
             Description = "Gets a random date that will happen soon based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
             ReturnName = "Soon",
@@ -40,12 +54,40 @@ namespace Faker
         );
 
         [OSAction(
+            Description = "Gets a random DateTimeOffset that will happen soon based on a provided language code",
+            IconResourceName = "Faker.resources.Logo.png",
+            ReturnName = "SoonOffset",
+            ReturnType = OSDataType.DateTime
+        )]
+        DateTimeOffset GetDate_SoonOffset(
+            [OSParameter(
+                DataType = OSDataType.Text,
+                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
+            )]
+            string language
+        );
+
+        [OSAction(
             Description = "Gets a random date in the future based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
             ReturnName = "Future",
             ReturnType = OSDataType.DateTime
         )]
         DateTime GetDate_Future(
+            [OSParameter(
+                DataType = OSDataType.Text,
+                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
+            )]
+            string language
+        );
+
+        [OSAction(
+            Description = "Gets a random DateTimeOffset in the future based on a provided language code",
+            IconResourceName = "Faker.resources.Logo.png",
+            ReturnName = "FutureOffset",
+            ReturnType = OSDataType.DateTime
+        )]
+        DateTimeOffset GetDate_FutureOffset(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -78,12 +120,64 @@ namespace Faker
         );
 
         [OSAction(
+            Description = "Gets a random DateTimeOffset between two dates based on a provided language code",
+            IconResourceName = "Faker.resources.Logo.png",
+            ReturnName = "BetweenOffset",
+            ReturnType = OSDataType.DateTime
+        )]
+        DateTimeOffset GetDate_BetweenOffset(
+            [OSParameter(
+                DataType = OSDataType.Text,
+                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
+            )]
+            string language,
+            [OSParameter(
+                DataType = OSDataType.DateTime,
+                Description = "Start date"
+            )]
+            DateTime startDate,
+            [OSParameter(
+                DataType = OSDataType.DateTime,
+                Description = "End date"
+            )]
+            DateTime endDate
+        );
+
+        [OSAction(
             Description = "Gets a random recent date based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
             ReturnName = "Recent",
             ReturnType = OSDataType.DateTime
         )]
         DateTime GetDate_Recent(
+            [OSParameter(
+                DataType = OSDataType.Text,
+                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
+            )]
+            string language
+        );
+
+        [OSAction(
+            Description = "Gets a random recent DateTimeOffset based on a provided language code",
+            IconResourceName = "Faker.resources.Logo.png",
+            ReturnName = "RecentOffset",
+            ReturnType = OSDataType.DateTime
+        )]
+        DateTimeOffset GetDate_RecentOffset(
+            [OSParameter(
+                DataType = OSDataType.Text,
+                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
+            )]
+            string language
+        );
+
+        [OSAction(
+            Description = "Gets a random TimeSpan based on a provided language code",
+            IconResourceName = "Faker.resources.Logo.png",
+            ReturnName = "Timespan",
+            ReturnType = OSDataType.Text
+        )]
+        TimeSpan GetDate_Timespan(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"

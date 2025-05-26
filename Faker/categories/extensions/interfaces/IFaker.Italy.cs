@@ -3,20 +3,20 @@
 namespace Faker
 {
     /// <summary>
-    /// Rant-related methods for the IFaker interface.
-    /// This partial interface contains all rant generation method definitions.
+    /// Italy-related methods for the IFaker interface.
+    /// This partial interface contains all Italy-specific generation method definitions.
     /// </summary>
     public partial interface IFaker
     {
-        #region Rant Methods
+        #region Italy Methods
 
         [OSAction(
-            Description = "Gets a random review based on a provided language code",
+            Description = "Gets an Italian Codice Fiscale (tax code) based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "RantReview",
+            ReturnName = "ItalyCodiceFiscale",
             ReturnType = OSDataType.Text
         )]
-        string GetRant_Review(
+        string GetItaly_Person_CodiceFiscale(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"

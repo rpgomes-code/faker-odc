@@ -25,6 +25,20 @@ namespace Faker
         );
 
         [OSAction(
+            Description = "Gets random lorem words based on a provided language code",
+            IconResourceName = "Faker.resources.Logo.png",
+            ReturnName = "LoremWords",
+            ReturnType = OSDataType.Text
+        )]
+        string[] GetLorem_Words(
+            [OSParameter(
+                DataType = OSDataType.Text,
+                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
+            )]
+            string language
+        );
+
+        [OSAction(
             Description = "Gets a random lorem letter based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
             ReturnName = "LoremLetter",

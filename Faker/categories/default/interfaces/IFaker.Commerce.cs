@@ -3,20 +3,20 @@
 namespace Faker
 {
     /// <summary>
-    /// Finance-related methods for the IFaker interface.
-    /// This partial interface contains all finance generation method definitions.
+    /// Commerce-related methods for the IFaker interface.
+    /// This partial interface contains all commerce and product generation method definitions.
     /// </summary>
     public partial interface IFaker
     {
-        #region Finance Methods
+        #region Commerce Methods
 
         [OSAction(
-            Description = "Gets a random account number based on a provided language code",
+            Description = "Gets a random department based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "Account",
+            ReturnName = "Department",
             ReturnType = OSDataType.Text
         )]
-        string GetFinance_Account(
+        string GetCommerce_Department(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -25,12 +25,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random account name based on a provided language code",
+            Description = "Gets a random price based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "AccountName",
+            ReturnName = "Price",
             ReturnType = OSDataType.Text
         )]
-        string GetFinance_AccountName(
+        string GetCommerce_Price(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -39,12 +39,31 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random amount based on a provided language code",
+            Description = "Gets random product categories based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "Amount",
-            ReturnType = OSDataType.Decimal
+            ReturnName = "Categories",
+            ReturnType = OSDataType.Text
         )]
-        decimal GetFinance_Amount(
+        string[] GetCommerce_Categories(
+            [OSParameter(
+                DataType = OSDataType.Text,
+                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
+            )]
+            string language,
+            [OSParameter(
+                DataType = OSDataType.Integer,
+                Description = "Number of categories to generate"
+            )]
+            int count
+        );
+
+        [OSAction(
+            Description = "Gets a random product name based on a provided language code",
+            IconResourceName = "Faker.resources.Logo.png",
+            ReturnName = "ProductName",
+            ReturnType = OSDataType.Text
+        )]
+        string GetCommerce_ProductName(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -53,12 +72,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random transaction type based on a provided language code",
+            Description = "Gets a random color based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "TransactionType",
+            ReturnName = "Color",
             ReturnType = OSDataType.Text
         )]
-        string GetFinance_TransactionType(
+        string GetCommerce_Color(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -67,12 +86,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random credit card number based on a provided language code",
+            Description = "Gets a random product description based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "CreditCardNumber",
+            ReturnName = "Product",
             ReturnType = OSDataType.Text
         )]
-        string GetFinance_CreditCardNumber(
+        string GetCommerce_Product(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -81,12 +100,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random credit card CVV based on a provided language code",
+            Description = "Gets a random product adjective based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "CreditCardCvv",
+            ReturnName = "ProductAdjective",
             ReturnType = OSDataType.Text
         )]
-        string GetFinance_CreditCardCvv(
+        string GetCommerce_ProductAdjective(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -95,12 +114,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random bitcoin address based on a provided language code",
+            Description = "Gets a random product material based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "BitcoinAddress",
+            ReturnName = "ProductMaterial",
             ReturnType = OSDataType.Text
         )]
-        string GetFinance_BitcoinAddress(
+        string GetCommerce_ProductMaterial(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -109,12 +128,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random ethereum address based on a provided language code",
+            Description = "Gets a random EAN-8 barcode number based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "EthereumAddress",
+            ReturnName = "Ean8",
             ReturnType = OSDataType.Text
         )]
-        string GetFinance_EthereumAddress(
+        string GetCommerce_Ean8(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -123,40 +142,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random routing number based on a provided language code",
+            Description = "Gets a random EAN-13 barcode number based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "RoutingNumber",
+            ReturnName = "Ean13",
             ReturnType = OSDataType.Text
         )]
-        string GetFinance_RoutingNumber(
-            [OSParameter(
-                DataType = OSDataType.Text,
-                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
-            )]
-            string language
-        );
-
-        [OSAction(
-            Description = "Gets a random BIC code based on a provided language code",
-            IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "BIC",
-            ReturnType = OSDataType.Text
-        )]
-        string GetFinance_Bic(
-            [OSParameter(
-                DataType = OSDataType.Text,
-                Description = "Language code (ex: 'en', 'es', 'pt_PT')"
-            )]
-            string language
-        );
-
-        [OSAction(
-            Description = "Gets a random IBAN based on a provided language code",
-            IconResourceName = "Faker.resources.Logo.png",
-            ReturnName = "IBAN",
-            ReturnType = OSDataType.Text
-        )]
-        string GetFinance_Iban(
+        string GetCommerce_Ean13(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"

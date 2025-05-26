@@ -51,13 +51,14 @@ namespace Faker
         }
 
         /// <summary>
-        /// Generates a random currency based on the provided language code.
+        /// Generates a random currency code based on the provided language code.
         /// </summary>
         /// <param name="language">The language code for localization.</param>
-        /// <returns>A random currency.</returns>
-        public Currency GetFinance_Currency(string language)
+        /// <returns>A random currency code.</returns>
+        public string GetFinance_Currency(string language)
         {
-            return CreateFaker(language).Finance.Currency();
+            var currency = CreateFaker(language).Finance.Currency();
+            return currency.Code; // Return just the currency code (e.g., "USD", "EUR", "GBP")
         }
 
         /// <summary>
