@@ -23,9 +23,9 @@
         /// </summary>
         /// <param name="language">The language code for localization.</param>
         /// <returns>A random date past offset.</returns>
-        public DateTimeOffset GetDate_PastOffset(string language)
+        public DateTime GetDate_PastOffset(string language)
         {
-            return CreateFaker(language).Date.PastOffset();
+            return CreateFaker(language).Date.PastOffset().DateTime;
         }
 
         /// <summary>
@@ -43,9 +43,9 @@
         /// </summary>
         /// <param name="language">The language code for localization.</param>
         /// <returns>A random date soon offset.</returns>
-        public DateTimeOffset GetDate_SoonOffset(string language)
+        public DateTime GetDate_SoonOffset(string language)
         {
-            return CreateFaker(language).Date.SoonOffset();
+            return CreateFaker(language).Date.SoonOffset().DateTime;
         }
 
         /// <summary>
@@ -63,9 +63,9 @@
         /// </summary>
         /// <param name="language">The language code for localization.</param>
         /// <returns>A random date future offset.</returns>
-        public DateTimeOffset GetDate_FutureOffset(string language)
+        public DateTime GetDate_FutureOffset(string language)
         {
-            return CreateFaker(language).Date.FutureOffset();
+            return CreateFaker(language).Date.FutureOffset().DateTime;
         }
 
         /// <summary>
@@ -83,9 +83,9 @@
         /// </summary>
         /// <param name="language">The language code for localization.</param>
         /// <returns>A random date between offset.</returns>
-        public DateTimeOffset GetDate_BetweenOffset(string language, DateTime startDate, DateTime endDate)
+        public DateTime GetDate_BetweenOffset(string language, DateTime startDate, DateTime endDate)
         {
-            return CreateFaker(language).Date.BetweenOffset(startDate, endDate);
+            return CreateFaker(language).Date.BetweenOffset(startDate, endDate).DateTime;
         }
 
         /// <summary>
@@ -103,19 +103,19 @@
         /// </summary>
         /// <param name="language">The language code for localization.</param>
         /// <returns>A random date recent offset.</returns>
-        public DateTimeOffset GetDate_RecentOffset(string language)
+        public DateTime GetDate_RecentOffset(string language)
         {
-            return CreateFaker(language).Date.RecentOffset();
+            return CreateFaker(language).Date.RecentOffset().DateTime;
         }
 
         /// <summary>
         /// Generates a random date timespan based on the provided language code.
         /// </summary>
         /// <param name="language">The language code for localization.</param>
-        /// <returns>A random date timespan.</returns>
-        public TimeSpan GetDate_Timespan(string language)
+        /// <returns>A random date timespan as string.</returns>
+        public string GetDate_Timespan(string language)
         {
-            return CreateFaker(language).Date.Timespan();
+            return CreateFaker(language).Date.Timespan().ToString();
         }
 
         /// <summary>

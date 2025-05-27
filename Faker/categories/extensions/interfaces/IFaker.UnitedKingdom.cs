@@ -1,6 +1,5 @@
 ﻿using System;
 using OutSystems.ExternalLibraries.SDK;
-using Bogus.Extensions.UnitedKingdom;
 
 namespace Faker
 {
@@ -65,7 +64,7 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a UK VAT registration number based on a provided language code and type",
+            Description = "Gets a UK VAT registration number based on a provided language code and type (0=Standard, 1=Branch, 2=Group, 3=Partnership, 4=NonProfit)",
             IconResourceName = "Faker.resources.Logo.png",
             ReturnName = "UKVatNumber",
             ReturnType = OSDataType.Text
@@ -75,12 +74,7 @@ namespace Faker
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
             )]
-            string language,
-            [OSParameter(
-                DataType = OSDataType.Integer,
-                Description = "VAT registration number type"
-            )]
-            VatRegistrationNumberType vatType
+            string language
         );
 
         [OSAction(

@@ -109,23 +109,24 @@
         }
 
         /// <summary>
-        /// Generates a random version based on the provided language code.
+        /// Generates a random version as string based on the provided language code.
         /// </summary>
         /// <param name="language">The language code for localization.</param>
-        /// <returns>A random version.</returns>
-        public Version GetSystem_Version(string language)
+        /// <returns>A random version as string.</returns>
+        public string GetSystem_Version(string language)
         {
-            return CreateFaker(language).System.Version();
+            return CreateFaker(language).System.Version().ToString();
         }
 
         /// <summary>
-        /// Generates a random exception based on the provided language code.
+        /// Generates a random exception message based on the provided language code.
         /// </summary>
         /// <param name="language">The language code for localization.</param>
-        /// <returns>A random exception.</returns>
-        public Exception GetSystem_Exception(string language)
+        /// <returns>A random exception message.</returns>
+        public string GetSystem_Exception(string language)
         {
-            return CreateFaker(language).System.Exception();
+            var exception = CreateFaker(language).System.Exception();
+            return $"{exception.GetType().Name}: {exception.Message}";
         }
 
         /// <summary>

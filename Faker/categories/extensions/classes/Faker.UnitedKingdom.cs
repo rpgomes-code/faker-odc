@@ -44,10 +44,11 @@ namespace Faker
         /// Generates a random United Kingdom VAT registration number based on the provided language code.
         /// </summary>
         /// <param name="language">The language code for localization.</param>
+        /// <param name="vatType">VAT registration number type (0=Standard, 1=Branch, 2=Group, 3=Partnership, 4=NonProfit)</param>
         /// <returns>A random United Kingdom VAT registration number.</returns>
-        public string GetUnitedKingdom_Finance_VatNumber(string language, VatRegistrationNumberType vatType)
+        public string GetUnitedKingdom_Finance_VatNumber(string language)
         {
-            return CreateFaker(language).Finance.VatNumber(vatType);
+            return CreateFaker(language).Finance.VatNumber(VatRegistrationNumberType.Standard);
         }
 
         /// <summary>

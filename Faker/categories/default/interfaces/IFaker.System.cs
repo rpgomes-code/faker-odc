@@ -1,5 +1,4 @@
-﻿using System;
-using OutSystems.ExternalLibraries.SDK;
+﻿using OutSystems.ExternalLibraries.SDK;
 
 namespace Faker
 {
@@ -152,12 +151,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random version based on a provided language code",
+            Description = "Gets a random version as string based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
             ReturnName = "Version",
             ReturnType = OSDataType.Text
         )]
-        Version GetSystem_Version(
+        string GetSystem_Version(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
@@ -166,12 +165,12 @@ namespace Faker
         );
 
         [OSAction(
-            Description = "Gets a random exception based on a provided language code",
+            Description = "Gets a random exception message based on a provided language code",
             IconResourceName = "Faker.resources.Logo.png",
             ReturnName = "Exception",
             ReturnType = OSDataType.Text
         )]
-        Exception GetSystem_Exception(
+        string GetSystem_Exception(
             [OSParameter(
                 DataType = OSDataType.Text,
                 Description = "Language code (ex: 'en', 'es', 'pt_PT')"
